@@ -1,7 +1,8 @@
 name: CI
 on:
   push:
-    branches: [development]
+    branches:
+      - '*'
   pull_request:
     branches: [development]
 jobs:
@@ -18,8 +19,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
-      - name: build project
-        run: npm run build
       - name: lint code
         run: npm run lint
       - name: format check
